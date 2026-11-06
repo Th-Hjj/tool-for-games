@@ -1,6 +1,6 @@
 # Checks for trustworthy production tools
 
-Read the relevant section when a tool has divergent output paths, persistent or inherited content, batch/import work, asynchronous results, or a claimed verification that may be weaker than the task requires. These are conditional checks, not a compulsory checklist for every tool.
+Read the relevant section when a tool writes content, has divergent output paths, persistent or inherited content, batch/import work, asynchronous results, or a claimed verification that may be weaker than the task requires. These are conditional checks, not a compulsory checklist for every tool.
 
 ## Follow the promise to its consumer
 
@@ -27,6 +27,14 @@ For variable or nondeterministic processing, control the seed/source where possi
 
 Prefer one processing/evaluation path when it meets the workflow. When preview and runtime must differ, identify the approximation and verify the decisions that depend on the difference. Do not silently double-process an already rendered asset while fixing a bypass.
 
+## Tools that change content
+
+- Make the editing scope clear: session-only, an item, a template/default, or a batch. Show resolved values and the origin of overrides when inheritance matters.
+- Derive change review from the actual pending write: old value, new value, affected objects, and meaningful exclusions. Use the same plan to apply the changes, or recheck it if the source changed. Do not present an empty diff for a real update.
+- Keep previews connected to the settings and source revision that produced them. Do not let a stale result appear to validate a newer draft or silently save something other than the reviewed version.
+- Preserve existing authored exceptions during changes to defaults unless the requested scope includes them. Provide a deliberate way to edit or remove an exception.
+- Use a recovery path suited to the impact: editor undo, a local backup, a version-control diff, or a transaction. For bulk or destructive work, preview the scope and handle invalid items, conflicts, and partial failure. A single temporary control does not need a publishing system.
+
 ## Inheritance, exceptions, and write scope
 
 Use the project's existing precedence. Make the resolved value and its origin understandable when users need to distinguish defaults, template values, instance overrides, and session drafts. Do not silently introduce a new hierarchy.
@@ -46,6 +54,8 @@ For costly or long-running work, make progress and cancellation meaningful. Make
 Check a second asset with a meaningful structural difference and an existing exception. If additions are supported, bring a fresh item through discovery, authoring, preview/validation, persistence, consumption, and reopening. Write down manual registration only when the current design actually requires it; remove avoidable hidden steps.
 
 ## Asynchronous previews and long operations
+
+Keep the interface responsive while slow work runs, and show which request produced the displayed result. Add cancellation, resumability, or batch progress where the actual cost warrants it.
 
 Associate an output with the input, settings, and revision that produced it. A late response must not replace the latest preview while retaining the latest labels. Retain a clear association between the reviewed output and the data to be saved.
 
