@@ -1,0 +1,6 @@
+interface:
+  display_name: "Tool for Games"
+  short_description: "Build game tools around real production decisions"
+  default_prompt: "Use $tool-for-games to build or improve a tool around my game production workflow."
+policy:
+  allow_implicit_invocation: true

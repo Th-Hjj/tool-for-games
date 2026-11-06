@@ -1,0 +1,15 @@
+{
+  "characters": {
+    "guide": {
+      "defaults": {"grit": 0.0, "echo": 0.0, "low": 0.0},
+      "lines": {
+        "greeting": {"recording": "guide.wav"},
+        "question": {"recording": "guide.wav", "overrides": {"grit": 0.2}}
+      }
+    },
+    "rival": {
+      "defaults": {"grit": 0.1, "echo": 0.0, "low": 0.1},
+      "lines": {"greeting": {"recording": "rival.wav"}}
+    }
+  }
+}

@@ -1,0 +1,71 @@
+[
+  {
+    "id": "audio-control",
+    "kind": "implementation",
+    "fixture": "fixtures/audio",
+    "prompt": "这个声音工具的 grit 滑杆改了听不出来，帮我修。工程在给定目录里，用现有入口把能验证的部分做实。",
+    "expected_invocation": true
+  },
+  {
+    "id": "boss-entry",
+    "kind": "design",
+    "prompt": "帮关卡策划做一个跳到 Boss 的按钮。先给第一版具体实现方案和验收方式，不写代码。",
+    "context": "项目是 Unity。现有 F8 面板已有加载存档和回到关卡起点的按钮。策划操作记录：从关卡起点跑两分钟，打完第一阶段，再等第二阶段的横扫。看不清前摇，想调完相机后马上再看一次。测试用短剑、满血；正式存档不能被覆盖。Boss 必须经过 Encounter.Start 才会注册目标和关门；Phase.Enter(2) 会生成该阶段的召唤物；死亡后应能重复。尚未提供工程代码。",
+    "expected_invocation": true
+  },
+  {
+    "id": "shared-enemy-editing",
+    "kind": "design",
+    "prompt": "系统和美术都想批量改敌人，做个编辑器。先基于这些资料设计第一版行为和验收，不写代码。",
+    "context": "现有引擎 Inspector 能编辑一个敌人，项目由 Git 管理。系统策划每天比较攻击间隔，美术每天比较攻击预备动作。Grunt 使用 infantry 模板：interval=1.2s、windup=slash_a；Elite 使用同一模板但 authored override interval=1.8s；Drone 使用 flying 模板：interval=2.0s、windup=dive_a，使用另一套骨骼。运行时从模板和实例覆盖中计算最终值。近期要新增一个敌人。素材预览已存在，但单独播放动画时不使用游戏相机。",
+    "expected_invocation": true
+  },
+  {
+    "id": "localization-roundtrip",
+    "kind": "design",
+    "prompt": "我们每周导回本地化表都会丢掉几条文本，还要手动找新台词。帮我改进这个流程。先说明最小改动和怎么检查，简洁一些，不写代码。",
+    "context": "表格列为 string_id、source、ja、zh。现有导入脚本用英文 source 匹配，source 会被叙事作者修改。同一句英文可能有两个不同语境。所有游戏引用都使用 string_id；翻译中有 {player_name} 占位符。现有导出能保留 ID。测试素材包含新条目、重复 ID、缺失译文、改过英文但译文未审的旧条目。",
+    "expected_invocation": true
+  },
+  {
+    "id": "qa-empty-success",
+    "kind": "review",
+    "prompt": "制作人想要一个可用的资源就绪报告。这个输出全绿，你觉得可以直接拿来决定这周的版本吗？",
+    "context": "当前候选版本 build-42。报告来自 build-41，显示 errors=0，assets_scanned=0；日志写着 No validators registered。要求检查纹理预算和本地化缺项。尚未连接运行中的项目，只能审查这个输出。",
+    "expected_invocation": true
+  },
+  {
+    "id": "single-value",
+    "kind": "activation",
+    "prompt": "把这个敌人的移动速度从 4 改成 5，其他不动。",
+    "context": "这是已有数据中的一次直接内容修改，没有工具缺陷或重复流程障碍。",
+    "expected_invocation": false
+  },
+  {
+    "id": "ordinary-gameplay",
+    "kind": "activation",
+    "prompt": "给玩家加一个二段跳。",
+    "context": "这是普通游戏玩法实现请求，没有制作工具需求。",
+    "expected_invocation": false
+  },
+  {
+    "id": "implicit-workflow",
+    "kind": "activation",
+    "prompt": "我每天都要逐个打开 60 个 prefab 看贴图是不是超预算，漏了就得重打包，能帮我省掉这些重复操作吗？",
+    "expected_invocation": true
+  },
+  {
+    "id": "task-switching",
+    "kind": "design",
+    "prompt": "我在同一个声音页面里调角色常规声线、导演一句特别的台词、审核要放进游戏的成品，来回切换很容易搞错。帮我改进这个页面，先说最小版本。",
+    "context": "角色方向可试听任意文本；正式台词有固定 ID；已有一句特别演绎不能随全局改动。界面只有一组滑杆、一个 Play 和一个 Save；生成有时需要十秒，用户等候期间继续修改。",
+    "expected_invocation": true
+  },
+  {
+    "id": "reuse-existing",
+    "kind": "design",
+    "prompt": "帮我把试玩时找参数这件事变得容易一点。",
+    "context": "一个人做三天原型。现有运行时调参面板支持 pin 和搜索，只是常用六个参数没有归组。现有保存和恢复功能足够，下一次使用就在明天。",
+    "expected_invocation": true
+  }
+]
