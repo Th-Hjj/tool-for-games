@@ -1,12 +1,14 @@
 # Tool for Games
 
+[MIT](LICENSE) · v0.2.0
+
 当游戏开发者提出工具需求时，让 agent 理解对方正在完成什么工作、需要凭什么作判断，再把这项工作做成容易操作、结果可信、后续内容也能接入的工具。
 
 An agent skill for building game-production tools around the work people actually do and the decisions they need to make.
 
 ## 怎么用
 
-将这个仓库作为 `tool-for-games` 文件夹安装到所用 agent 的 skills 目录，保留 `SKILL.md`、`agents/` 和 `references/`。具体安装入口取决于 agent。安装后直接描述工作和遇到的问题，也可以明确要求使用 `tool-for-games`。
+将 `skills/tool-for-games` 复制到所用 agent 的 skills 目录，保留其中的 `SKILL.md`、`agents/` 和 `references/`。具体安装入口取决于 agent。安装后直接描述工作和遇到的问题，也可以明确要求使用 `tool-for-games`。
 
 例如：
 
@@ -29,10 +31,11 @@ An agent skill for building game-production tools around the work people actuall
 
 | 文件 | 用途 |
 | --- | --- |
-| [SKILL.md](SKILL.md) | 自动调用描述、技术策划思路与按规模调整的工作流程 |
-| [work-patterns.md](references/work-patterns.md) | 跨岗位任务、共用流程与差异化反馈 |
-| [production-checks.md](references/production-checks.md) | 预览与保存、继承覆盖、批量导入、异步结果和验收 |
-| [research.md](references/research.md) | 一手来源、适用边界，以及作者经验如何转成方法 |
+| [SKILL.md](skills/tool-for-games/SKILL.md) | 自动调用描述、技术策划思路与按规模调整的工作流程 |
+| [work-patterns.md](skills/tool-for-games/references/work-patterns.md) | 跨岗位任务、共用流程与差异化反馈 |
+| [production-checks.md](skills/tool-for-games/references/production-checks.md) | 修改内容的工具、预览与保存、继承覆盖、批量导入、异步结果和验收 |
+| [research.md](skills/tool-for-games/references/research.md) | 一手来源、适用边界，以及作者经验如何转成方法 |
+| [integration-points.md](skills/tool-for-games/references/integration-points.md) | Unity、Unreal、Godot 与表格/命令行工具的界面、撤销、导入和校验接入点 |
 | [evals](evals/README.md) | 维护者使用的场景与验证记录，不作为日常执行步骤 |
 
 主文件使用英文指令，要求 agent 使用用户的语言和项目已有术语。工作方法不绑定引擎；具体实现需要相应工程、工具权限和运行环境。
