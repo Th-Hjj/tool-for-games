@@ -6,9 +6,17 @@
 
 An agent skill for building game-production tools around the work people actually do and the decisions they need to make.
 
+## Install / 安装
+
+```bash
+npx skills add Th-Hjj/tool-for-games
+```
+
+Add `-g` to install globally. / 加上 `-g` 可安装到用户级。
+
 ## 怎么用
 
-将 `skills/tool-for-games` 复制到所用 agent 的 skills 目录，保留其中的 `SKILL.md`、`agents/` 和 `references/`。具体安装入口取决于 agent。安装后直接描述工作和遇到的问题，也可以明确要求使用 `tool-for-games`。
+使用上方命令安装，或手动将 `skills/tool-for-games` 复制到所用 agent 的 skills 目录，保留其中的 `SKILL.md`、`agents/` 和 `references/`。安装后直接描述工作和遇到的问题，也可以明确要求使用 `tool-for-games`。
 
 例如：
 
